@@ -12,6 +12,7 @@ TESTS_OBJS			= 	$(TEST_SOURCES:.c=.o)
 
 LIB_FT_PRINTF		=	ft_printf
 LIB_FT				=	libft
+LIB_GNL				=	gnl
 CFLAGS 				= 	-Wall -Wextra -Werror
 CC 					= 	gcc
 
@@ -25,14 +26,18 @@ $(NAME): $(OBJS)
 	@cp $(LIB_FT_PRINTF)/libftprintf.a .
 	@make bonus -C $(LIB_FT)
 	@cp $(LIB_FT)/libft.a .
-	@$(CC) $(CFLAGS) -I ${INCLUDES_DIR} $(OBJS) libft.a libftprintf.a -o $(NAME)
+	@make bonus -C $(LIB_GNL)
+	@cp $(LIB_GNL)/libgnl.a .
+	@$(CC) $(CFLAGS) -I ${INCLUDES_DIR} $(OBJS) libgnl.a libft.a libftprintf.a -o $(NAME)
 
 test: $(TESTS_OBJS)
 	@make -C $(LIB_FT_PRINTF)
 	@cp $(LIB_FT_PRINTF)/libftprintf.a .
 	@make bonus -C $(LIB_FT)
 	@cp $(LIB_FT)/libft.a .
-	@$(CC) $(CFLAGS) -I ${INCLUDES_DIR} $(TESTS_OBJS) libft.a libftprintf.a -o so_long_tests
+	@make bonus -C $(LIB_GNL)
+	@cp $(LIB_GNL)/libgnl.a .
+	@$(CC) $(CFLAGS) -I ${INCLUDES_DIR} $(TESTS_OBJS) libgnl.a libft.a libftprintf.a -o so_long_tests
 	@echo
 	@echo Running tests ...
 	@./so_long_tests
@@ -43,6 +48,7 @@ clean:
 	rm -f $(TESTS_OBJS) $(OBJS)
 	rm ./libft.a
 	rm ./libftprintf.a
+	@make fclean -C $(LIB_GNL)
 	@make fclean -C $(LIB_FT)
 	@make fclean -C $(LIB_FT_PRINTF)
 
