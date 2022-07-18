@@ -1,8 +1,14 @@
+
+#include <stdlib.h>
+#include "state.h"
+
 int	main(int argc, char *argv[])
 {
-	//Test commit 2
-	//Test commit 1
+	t_state	state;
+
 	(void)argc;
 	(void)argv;
+	if (!init_state(&state))
+		exit(0);
 	return (0);
 }
