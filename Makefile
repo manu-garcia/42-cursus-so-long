@@ -4,7 +4,7 @@ NAME				=	so_long
 SRC_DIR				=	src
 INCLUDES_DIR		= 	includes
 
-SOURCES				= 	$(SRC_DIR)/check_extension.c
+SOURCES				= 	$(SRC_DIR)/check_extension.c $(SRC_DIR)/state.c
 MAIN_SOURCES		= 	$(SRC_DIR)/main.c $(SOURCES)
 TEST_SOURCES		= 	$(SRC_DIR)/tests.c $(SOURCES)
 OBJS				= 	$(MAIN_SOURCES:.c=.o)

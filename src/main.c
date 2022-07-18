@@ -1,10 +1,11 @@
 
 #include <fcntl.h>
+#include <stdlib.h>
 #include "../ft_printf/src/ft_printf.h"
 #include "../gnl/get_next_line.h"
 #include "../libft/libft.h"
 #include "check_extension.h" 
-
+#include "state.h"
 /* int check_lines(int len, int fd, const char *array)
 {
  
@@ -16,30 +17,6 @@
 	}
 	ft_printf("Primera línea correcta.");
 return (0);
-} */
-/* int check_extension(char *path, char *extension)
-{
-	int i;
-	int j;
-	int check;
-
-	check = 1;
-	j = ft_strlen(extension);
-	i = ft_strlen(path);
-	if(i>=j)
-		while(path[i-1] && extension[j-1])
-		{
-			if(path[i-1] != extension[j-1])
-			{
-				check = 0;
-				break ;
-			}
-			j--;
-			i--;
-		}
-	else
-		check = 0;	 
-	return(check);
 } */
 
 int check_map(int fd)
@@ -62,16 +39,19 @@ int check_map(int fd)
 	return(nbr_of_lines-1);
 }
 int	main(int argc, char *argv[])
-{	 //int fd;
- 
+{
+	//int fd;
+	t_state	state;
+
+	if (!init_state(&state))
+		exit(0);
 	if(argc !=2)
 	{
 		ft_printf("Numero de argumentos incorrecto\n");
 		return(0);
 	}
  
-
 	ft_printf("valor de %d\n", check_extension(argv[1], ".ber"));
- 	 
+
 	return (0);
 }
