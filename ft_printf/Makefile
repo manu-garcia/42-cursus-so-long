@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: manu <manu@student.42.fr>                  +#+  +:+       +#+         #
+#    By: caquinta <caquinta@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/05/08 18:26:06 by manu              #+#    #+#              #
-#    Updated: 2022/05/09 00:01:15 by manu             ###   ########.fr        #
+#    Updated: 2022/07/18 14:32:02 by caquinta         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,7 +28,7 @@ $(NAME): $(MANDATORY_OBJ)
 re: fclean $(NAME)
 
 clean:
-	rm -f *.o
+	rm -f $(MANDATORY_OBJ)
 
 fclean: clean
 	rm -f $(NAME)
