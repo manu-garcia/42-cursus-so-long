@@ -1,6 +1,8 @@
 
 #include <fcntl.h>
 #include <stdlib.h>
+#include <mlx.h>
+
 #include "../ft_printf/src/ft_printf.h"
 #include "../gnl/get_next_line.h"
 #include "../libft/libft.h"
@@ -54,6 +56,6 @@ int	main(int argc, char *argv[])
 	}
 
 	ft_printf("valor de %d\n", check_extension(argv[1], ".ber"));
-
-	return (0);
+	mlx_loop(state.mlx);
+	return exit_without_error(&state);
 }

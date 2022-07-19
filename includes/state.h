@@ -4,6 +4,8 @@
 typedef struct s_state
 {
 	void	*map;
+	void	*mlx;
+	void	*window;
 }	t_state;
 
 int	init_state(t_state *state);

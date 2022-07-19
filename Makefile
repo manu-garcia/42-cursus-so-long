@@ -15,7 +15,9 @@ TESTS_OBJS			= 	$(TEST_SOURCES:.c=.o)
 LIB_FT_PRINTF		=	ft_printf
 LIB_FT				=	libft
 LIB_GNL				=	gnl
+LIB_MINILIBX		=	minilibx
 CFLAGS 				= 	-Wall -Wextra -Werror
+CFLAGS_MINILIBX		= 	-L . -lmlx -framework OpenGL -framework AppKit
 CC 					= 	gcc
 
 all: $(NAME)
@@ -30,7 +32,9 @@ $(NAME): $(OBJS)
 	@cp $(LIB_FT)/libft.a .
 	@make bonus -C $(LIB_GNL)
 	@cp $(LIB_GNL)/libgnl.a .
-	@$(CC) $(CFLAGS) -I ${INCLUDES_DIR} $(OBJS) libgnl.a libft.a libftprintf.a -o $(NAME)
+	@make -C $(LIB_MINILIBX)
+	@cp $(LIB_MINILIBX)/libmlx.a .
+	@$(CC) $(CFLAGS) $(CFLAGS_MINILIBX) -I ${INCLUDES_DIR} -I ${LIB_MINILIBX} $(OBJS) libgnl.a libft.a libftprintf.a libmlx.a -o $(NAME)
 
 test: $(TESTS_OBJS)
 	@make -C $(LIB_FT_PRINTF)
@@ -39,7 +43,9 @@ test: $(TESTS_OBJS)
 	@cp $(LIB_FT)/libft.a .
 	@make bonus -C $(LIB_GNL)
 	@cp $(LIB_GNL)/libgnl.a .
-	@$(CC) $(CFLAGS) -I ${INCLUDES_DIR} $(TESTS_OBJS) libgnl.a libft.a libftprintf.a -o so_long_tests
+	@make -C $(LIB_MINILIBX)
+	@cp $(LIB_MINILIBX)/libmlx.a .
+	@$(CC) $(CFLAGS) $(CFLAGS_MINILIBX) -I ${INCLUDES_DIR} -I ${LIB_MINILIBX} $(TESTS_OBJS) libgnl.a libft.a libftprintf.a libmlx.a -o so_long_tests
 	@echo
 	@echo Running tests ...
 	@./so_long_tests
@@ -50,9 +56,11 @@ clean:
 	rm -f $(TESTS_OBJS) $(OBJS)
 	rm ./libft.a
 	rm ./libftprintf.a
+	rm ./libmlx.a .
 	@make fclean -C $(LIB_GNL)
 	@make fclean -C $(LIB_FT)
 	@make fclean -C $(LIB_FT_PRINTF)
+	@make clean -C $(LIB_MINILIBX)
 
 fclean: clean
 	rm -f $(NAME)
