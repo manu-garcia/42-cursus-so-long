@@ -1,8 +1,8 @@
 
 #include <fcntl.h>
 #include <stdlib.h>
-#include <mlx.h>
 
+#include "mlx.h"
 #include "../ft_printf/src/ft_printf.h"
 #include "../gnl/get_next_line.h"
 #include "../libft/libft.h"

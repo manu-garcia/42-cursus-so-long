@@ -15,15 +15,26 @@ TESTS_OBJS			= 	$(TEST_SOURCES:.c=.o)
 LIB_FT_PRINTF		=	ft_printf
 LIB_FT				=	libft
 LIB_GNL				=	gnl
-LIB_MINILIBX		=	minilibx
+
 CFLAGS 				= 	-Wall -Wextra -Werror
+
+OS := $(shell uname)
+ifeq ($(OS), Darwin)
+LIB_MINILIBX		=	minilibx
 CFLAGS_MINILIBX		= 	-L . -lmlx -framework OpenGL -framework AppKit
+LIB_MINILIBX_NAME	=	libmlx.a
+else
+LIB_MINILIBX		=	minilibx_mms_20200219
+LIB_MINILIBX_NAME	=	libmlx.dylib
+CFLAGS_MINILIBX		= 	-L . -lmlx -lXext -lX11
+endif
+
 CC 					= 	gcc
 
 all: $(NAME)
 
 $(SRC_DIR)/%.o: $(SRC_DIR)/%.c
-	$(CC) -c $(CFLAGS) -I ${INCLUDES_DIR} -o $@ $^
+	$(CC) -c $(CFLAGS) -I ${INCLUDES_DIR} -I ${LIB_MINILIBX} -o $@ $^
 
 $(NAME): $(OBJS)
 	@make -C $(LIB_FT_PRINTF)
@@ -33,8 +44,8 @@ $(NAME): $(OBJS)
 	@make bonus -C $(LIB_GNL)
 	@cp $(LIB_GNL)/libgnl.a .
 	@make -C $(LIB_MINILIBX)
-	@cp $(LIB_MINILIBX)/libmlx.a .
-	@$(CC) $(CFLAGS) $(CFLAGS_MINILIBX) -I ${INCLUDES_DIR} -I ${LIB_MINILIBX} $(OBJS) libgnl.a libft.a libftprintf.a libmlx.a -o $(NAME)
+	@cp $(LIB_MINILIBX)/$(LIB_MINILIBX_NAME) .
+	@$(CC) $(CFLAGS) $(CFLAGS_MINILIBX) -I ${INCLUDES_DIR} -I ${LIB_MINILIBX} $(OBJS) libgnl.a libft.a libftprintf.a $(LIB_MINILIBX_NAME) -o $(NAME)
 
 test: $(TESTS_OBJS)
 	@make -C $(LIB_FT_PRINTF)
@@ -44,8 +55,8 @@ test: $(TESTS_OBJS)
 	@make bonus -C $(LIB_GNL)
 	@cp $(LIB_GNL)/libgnl.a .
 	@make -C $(LIB_MINILIBX)
-	@cp $(LIB_MINILIBX)/libmlx.a .
-	@$(CC) $(CFLAGS) $(CFLAGS_MINILIBX) -I ${INCLUDES_DIR} -I ${LIB_MINILIBX} $(TESTS_OBJS) libgnl.a libft.a libftprintf.a libmlx.a -o so_long_tests
+	@cp $(LIB_MINILIBX)/$(LIB_MINILIBX_NAME) .
+	@$(CC) $(CFLAGS) $(CFLAGS_MINILIBX) -I ${INCLUDES_DIR} -I ${LIB_MINILIBX} $(TESTS_OBJS) libgnl.a libft.a libftprintf.a $(LIB_MINILIBX_NAME) -o so_long_tests
 	@echo
 	@echo Running tests ...
 	@./so_long_tests
@@ -56,7 +67,8 @@ clean:
 	rm -f $(TESTS_OBJS) $(OBJS)
 	rm ./libft.a
 	rm ./libftprintf.a
-	rm ./libmlx.a .
+	rm ./libgnl.a
+	rm ./$(LIB_MINILIBX_NAME)
 	@make fclean -C $(LIB_GNL)
 	@make fclean -C $(LIB_FT)
 	@make fclean -C $(LIB_FT_PRINTF)
