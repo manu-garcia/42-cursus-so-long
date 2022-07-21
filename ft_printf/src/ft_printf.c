@@ -6,7 +6,7 @@
 /*   By: manu <manu@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/08 19:01:57 by manu              #+#    #+#             */
-/*   Updated: 2022/05/09 00:03:58 by manu             ###   ########.fr       */
+/*   Updated: 2022/07/21 11:31:50 by manu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ static int	process_specifier(char specifier, va_list args)
 	else if (specifier == SPECIFIER_HEXA_UPPERCASE)
 		len += ft_putnumbr_base(va_arg(args, unsigned int), 16, true);
 	else if (specifier == SPECIFIER_POINTER)
-		len += ft_put_pointer(va_arg(args, uintptr_t));
+		len += ft_put_pointer(va_arg(args, unsigned long));
 	return (len);
 }
 
