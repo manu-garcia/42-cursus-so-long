@@ -10,6 +10,7 @@
 #include "state.h"
 #include "error.h"
 #include "events.h"
+#include "frame.h"
 
 /* int check_lines(int len, int fd, const char *array)
 {
@@ -55,10 +56,10 @@ int	main(int argc, char *argv[])
 		ft_printf("Numero de argumentos incorrecto\n");
 		return(0);
 	}
-
 	ft_printf("valor de %d\n", check_extension(argv[1], ".ber"));
 	mlx_hook(state.window, EVENT_ON_DESTROY, 0, exit_without_error, &state);
 	mlx_key_hook(state.window, on_key_pressed, &state);
+	mlx_loop_hook(state.mlx, on_render_frame, &state);
 	mlx_loop(state.mlx);
 	return (exit_without_error(&state));
 }

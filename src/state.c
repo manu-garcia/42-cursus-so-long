@@ -2,6 +2,7 @@
 #include <stdlib.h>
 
 #include "state.h"
+#include "image.h"
 #include "libft.h"
 
 int	init_state(t_state *state)
@@ -9,6 +10,7 @@ int	init_state(t_state *state)
 	ft_memset(state, 1, sizeof(t_state));
 	state->mlx = mlx_init();
 	state->window = mlx_new_window(state->mlx, 1000, 1000, "so_long");
+	load_all_images(state);
 	return (1);
 }
 
