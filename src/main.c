@@ -9,6 +9,7 @@
 #include "check_extension.h"
 #include "state.h"
 #include "error.h"
+#include "events.h"
 
 /* int check_lines(int len, int fd, const char *array)
 {
@@ -56,6 +57,8 @@ int	main(int argc, char *argv[])
 	}
 
 	ft_printf("valor de %d\n", check_extension(argv[1], ".ber"));
+	mlx_hook(state.window, EVENT_ON_DESTROY, 0, exit_without_error, &state);
+	mlx_key_hook(state.window, on_key_pressed, &state);
 	mlx_loop(state.mlx);
-	return exit_without_error(&state);
+	return (exit_without_error(&state));
 }
