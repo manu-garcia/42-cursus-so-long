@@ -3,5 +3,5 @@
 
 int	on_render_frame(t_state *state)
 {
-	return (draw_animation(state, &state->hero, 1, 100));
+	return (draw_animation(state, &state->hero));
 }

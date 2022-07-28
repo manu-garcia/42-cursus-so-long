@@ -12,6 +12,8 @@ int	load_all_images(t_state *state)
 	load_image(state, &(state->hero.image[3]), "./images/hero_4.xpm");
 	state->hero.n_images = 4;
 	state->hero.n_image = 0;
+	state->hero.x = 0;
+	state->hero.y = 0;
 	return (1);
 }
 
@@ -27,15 +29,17 @@ int	load_image(t_state *state, t_image *image, char *file)
 	return (1);
 }
 
-int	draw_animation(t_state *state, t_animation *animation, int x, int y)
+int	draw_animation(t_state *state, t_animation *animation)
 {
-	draw_image(state, &animation->image[animation->n_image], x, y);
+	draw_image(state, &animation->image[animation->n_image],
+		animation->x, animation->y);
 	animation->time++;
-	if (animation->time > 5)
+	if (animation->time > TIME_PER_ANIMATION_FRAME)
 	{
 		animation->time = 0;
 		animation->n_image++;
-		if (animation->n_image >= animation->n_images)
+		if (animation->n_image >= animation->n_images
+			|| animation->n_image >= MAX_IMAGE_PER_ANIMATION)
 			animation->n_image = 0;
 	}
 	return (1);

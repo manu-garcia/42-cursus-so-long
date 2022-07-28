@@ -9,6 +9,7 @@ SOURCES				= 	$(SRC_DIR)/check_extension.c \
 						$(SRC_DIR)/events.c \
 						$(SRC_DIR)/frame.c \
 						$(SRC_DIR)/image.c \
+						$(SRC_DIR)/hero.c \
 						$(SRC_DIR)/error.c
 MAIN_SOURCES		= 	$(SRC_DIR)/main.c $(SOURCES)
 TEST_SOURCES		= 	$(SRC_DIR)/tests.c $(SOURCES)
