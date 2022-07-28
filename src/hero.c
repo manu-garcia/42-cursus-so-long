@@ -25,24 +25,24 @@ static void	increase_hero_n_moves(t_state *state)
 
 void	hero_move_right(t_state *state)
 {
-	state->hero.x += TILE_SIZE;
+	state->hero.x++;
 	increase_hero_n_moves(state);
 }
 
 void	hero_move_left(t_state *state)
 {
-	state->hero.x -= TILE_SIZE;
+	state->hero.x--;
 	increase_hero_n_moves(state);
 }
 
 void	hero_move_up(t_state *state)
 {
-	state->hero.y -= TILE_SIZE;
+	state->hero.y--;
 	increase_hero_n_moves(state);
 }
 
 void	hero_move_down(t_state *state)
 {
-	state->hero.y += TILE_SIZE;
+	state->hero.y++;
 	increase_hero_n_moves(state);
 }

@@ -29,6 +29,7 @@ typedef struct s_state
 	void		*mlx;
 	void		*window;
 	t_animation	hero;
+	t_animation	monster;
 	int			n_hero_moves;
 }	t_state;
 

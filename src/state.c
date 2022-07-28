@@ -3,6 +3,7 @@
 
 #include "state.h"
 #include "image.h"
+#include "load.h"
 #include "libft.h"
 
 int	init_state(t_state *state)
