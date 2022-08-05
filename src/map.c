@@ -6,7 +6,7 @@
 /*   By: manu <manu@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/05 18:33:51 by manu              #+#    #+#             */
-/*   Updated: 2022/08/05 18:36:29 by manu             ###   ########.fr       */
+/*   Updated: 2022/08/05 18:59:39 by manu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,32 @@
 #include "state.h"
 #include "error.h"
 #include "map.h"
+
+static int	count_number_tiles(char *row, t_tile tile)
+{
+	int	col;
+	int	n_tiles;
+
+	col = 0;
+	n_tiles = 0;
+	while (row[col])
+	{
+		if (row[col] == tile)
+			n_tiles++;
+		col++;
+	}
+	return (n_tiles);
+}
+
+static int	get_height(t_map map)
+{
+	int	height;
+
+	height = 0;
+	while (map.grid[height])
+		height++;
+	return (height);
+}
 
 static int	is_valid_wall(char *row)
 {
@@ -48,32 +74,6 @@ static int	is_valid_row(t_state *state, char *row, int row_height, int height)
 	state->map.n_tiles_collectible += count_number_tiles(row, TILE_COLLECTIBLE);
 	state->map.n_tiles_exit += count_number_tiles(row, TILE_EXIT);
 	return (1);
-}
-
-static int	count_number_tiles(char *row, t_tile tile)
-{
-	int	col;
-	int	n_tiles;
-
-	col = 0;
-	n_tiles = 0;
-	while (row[col])
-	{
-		if (row[col] == tile)
-			n_tiles++;
-		col++;
-	}
-	return (n_tiles);
-}
-
-static int	get_height(t_map map)
-{
-	int	height;
-
-	height = 0;
-	while (map.grid[height])
-		height++;
-	return (height);
 }
 
 void	load_map(t_state *state, char *file_name)

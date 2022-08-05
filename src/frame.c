@@ -26,6 +26,7 @@ int	on_render_frame(t_state *state)
 {
 	update_frame(state);
 	check_collisions(state);
+	draw_map(state);
 	draw_animation(state, &state->monster);
 	draw_animation(state, &state->hero);
 	return (1);

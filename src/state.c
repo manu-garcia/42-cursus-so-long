@@ -7,6 +7,7 @@
 #include "libft.h"
 #include "map.h"
 #include "tile.h"
+#include "load.h"
 #include "ft_printf.h"
 
 int	init_state(t_state *state, char *map_file_name)
@@ -26,7 +27,6 @@ int	init_state(t_state *state, char *map_file_name)
 	return (1);
 }
 
-// mlx_destroy_image(state->mlx, state->img);
 int	free_state(t_state *state)
 {
 	if (state->mlx && state->window)
@@ -35,6 +35,7 @@ int	free_state(t_state *state)
 		free(state->mlx);
 	}
 	free_map(state);
+	// free_all_images(state);
 	ft_memset(state, 0, sizeof(t_state));
 	return (1);
 }

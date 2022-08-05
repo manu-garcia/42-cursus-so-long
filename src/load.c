@@ -4,6 +4,7 @@
 #include "state.h"
 #include "error.h"
 #include "tile.h"
+#include "libft.h"
 
 int	load_image(t_state *state, t_image *image, char *file)
 {
@@ -47,5 +48,39 @@ int	load_all_images(t_state *state)
 {
 	load_hero(state);
 	load_monster(state);
+	load_image(state, &(state->floor), "./images/floor.xpm");
+	load_image(state, &(state->wall), "./images/wall.xpm");
+	load_image(state, &(state->exit), "./images/exit.xpm");
+	load_image(state, &(state->collectible), "./images/collectible.xpm");
+	return (1);
+}
+
+static void	free_image(t_state *state, t_image *image)
+{
+	if (image->img)
+		mlx_destroy_image(state->mlx, image->img);
+}
+
+static void	free_animation(t_state *state, t_animation *animation)
+{
+	int	i;
+
+	i = 0;
+	while (i < animation->n_images)
+	{
+		free_image(state, &(animation->image[i]));
+		i++;
+	}
+	ft_memset(animation, 0, sizeof(t_animation));
+}
+
+int	free_all_images(t_state *state)
+{
+	free_animation(state, &(state->hero));
+	free_animation(state, &(state->monster));
+	free_image(state, &state->floor);
+	free_image(state, &state->wall);
+	free_image(state, &state->exit);
+	free_image(state, &state->collectible);
 	return (1);
 }
