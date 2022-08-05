@@ -12,6 +12,7 @@ SOURCES				= 	$(SRC_DIR)/check_extension.c \
 						$(SRC_DIR)/image.c \
 						$(SRC_DIR)/hero.c \
 						$(SRC_DIR)/monster.c \
+						$(SRC_DIR)/map.c \
 						$(SRC_DIR)/error.c
 MAIN_SOURCES		= 	$(SRC_DIR)/main.c $(SOURCES)
 TEST_SOURCES		= 	$(SRC_DIR)/tests.c $(SOURCES)
@@ -40,7 +41,7 @@ CC 					= 	gcc
 all: $(NAME)
 
 $(SRC_DIR)/%.o: $(SRC_DIR)/%.c
-	$(CC) -c $(CFLAGS) -I ${INCLUDES_DIR} -I ${LIB_MINILIBX} -o $@ $^
+	$(CC) -c $(CFLAGS) -I ${INCLUDES_DIR} -I ${LIB_GNL} -I ${LIB_MINILIBX} -o $@ $^
 
 $(NAME): $(OBJS)
 	@make -C $(LIB_FT_PRINTF)

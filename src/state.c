@@ -5,12 +5,23 @@
 #include "image.h"
 #include "load.h"
 #include "libft.h"
+#include "map.h"
+#include "tile.h"
+#include "ft_printf.h"
 
-int	init_state(t_state *state)
+int	init_state(t_state *state, char *map_file_name)
 {
 	ft_memset(state, 0, sizeof(t_state));
+	load_map(state, map_file_name);
+	if (!is_valid_map(state))
+	{
+		ft_printf("The map is invalid\n");
+		return (0);
+	}
 	state->mlx = mlx_init();
-	state->window = mlx_new_window(state->mlx, 1000, 1000, "so_long");
+	state->window = mlx_new_window(state->mlx,
+		state->map.width * TILE_SIZE,
+		state->map.height * TILE_SIZE, "so_long");
 	load_all_images(state);
 	return (1);
 }
@@ -18,7 +29,12 @@ int	init_state(t_state *state)
 // mlx_destroy_image(state->mlx, state->img);
 int	free_state(t_state *state)
 {
-	mlx_destroy_window(state->mlx, state->window);
-	free(state->mlx);
+	if (state->mlx && state->window)
+	{
+		mlx_destroy_window(state->mlx, state->window);
+		free(state->mlx);
+	}
+	free_map(state);
+	ft_memset(state, 0, sizeof(t_state));
 	return (1);
 }

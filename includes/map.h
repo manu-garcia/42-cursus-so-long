@@ -1,0 +1,31 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   map.h                                              :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: manu <manu@student.42.fr>                  +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/08/05 18:32:32 by manu              #+#    #+#             */
+/*   Updated: 2022/08/05 18:32:35 by manu             ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#ifndef MAP_H
+# define MAP_H
+
+# include "state.h"
+
+typedef enum e_tile {
+	TILE_EMPTY = '0',
+	TILE_WALL = '1',
+	TILE_COLLECTIBLE = 'C',
+	TILE_EXIT = 'E',
+	TILE_PLAYER = 'P',
+	TILE_ENEMY = 'N',
+}	t_tile;
+
+void	load_map(t_state *state, char *file_name);
+void	free_map(t_state *state);
+int		is_valid_map(t_state *state);
+
+#endif

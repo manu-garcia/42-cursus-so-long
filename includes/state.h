@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   state.h                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: manu <manu@student.42.fr>                  +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/08/05 18:32:55 by manu              #+#    #+#             */
+/*   Updated: 2022/08/05 18:33:14 by manu             ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef STATE_H
 # define STATE_H
 
@@ -23,9 +35,19 @@ typedef struct s_animation
 	int		y;
 }	t_animation;
 
+typedef struct s_map
+{
+	char		**grid;
+	int			width;
+	int			height;
+	int			n_tiles_exit;
+	int			n_tiles_collectible;
+	int			n_players;
+}	t_map;
+
 typedef struct s_state
 {
-	void		*map;
+	t_map		map;
 	void		*mlx;
 	void		*window;
 	t_animation	hero;
@@ -33,7 +55,7 @@ typedef struct s_state
 	int			n_hero_moves;
 }	t_state;
 
-int	init_state(t_state *state);
+int	init_state(t_state *state, char *map_file_name);
 int	free_state(t_state *state);
 
 #endif
