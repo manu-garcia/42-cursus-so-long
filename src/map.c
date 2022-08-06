@@ -6,7 +6,7 @@
 /*   By: manugarc <manugarc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/05 18:33:51 by manu              #+#    #+#             */
-/*   Updated: 2022/08/06 10:20:30 by manugarc         ###   ########.fr       */
+/*   Updated: 2022/08/06 12:21:39 by manugarc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -145,4 +145,9 @@ int	is_valid_map(t_state *state)
 		return (0);
 	}
 	return (1);
+}
+
+void	set_tile(t_state *state, t_tile tile, int x, int y)
+{
+	state->map.grid[y][x] = tile;
 }

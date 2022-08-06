@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   state.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: manu <manu@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: manugarc <manugarc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/05 18:32:55 by manu              #+#    #+#             */
-/*   Updated: 2022/08/05 20:07:14 by manu             ###   ########.fr       */
+/*   Updated: 2022/08/06 11:51:52 by manugarc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,8 @@ typedef struct s_state
 	t_image		wall;
 	t_image		collectible;
 	int			n_hero_moves;
+	int			n_collectibles;
+	int			time;
 }	t_state;
 
 int	init_state(t_state *state, char *map_file_name);

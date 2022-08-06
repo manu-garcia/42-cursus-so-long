@@ -8,6 +8,7 @@
 #include "map.h"
 #include "tile.h"
 #include "load.h"
+#include "hero.h"
 #include "ft_printf.h"
 
 int	init_state(t_state *state, char *map_file_name)
@@ -24,6 +25,7 @@ int	init_state(t_state *state, char *map_file_name)
 		state->map.width * TILE_SIZE,
 		state->map.height * TILE_SIZE, "so_long");
 	load_all_images(state);
+	set_hero_position(state);
 	return (1);
 }
 

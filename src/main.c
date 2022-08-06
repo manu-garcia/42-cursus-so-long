@@ -10,7 +10,7 @@
 #include "error.h"
 #include "events.h"
 #include "frame.h"
-#include "frame.h"
+#include "map.h"
 
 static void	init_hooks(t_state *state)
 {

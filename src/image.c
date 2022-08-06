@@ -8,8 +8,9 @@
 
 int	draw_animation(t_state *state, t_animation *animation)
 {
-	draw_image(state, &animation->image[animation->n_image],
-		animation->x, animation->y);
+	mlx_put_image_to_window(state->mlx, state->window,
+		animation->image[animation->n_image].img,
+		(animation->x * TILE_SIZE) + 15, (animation->y * TILE_SIZE) + 15);
 	animation->time++;
 	if (animation->time > TIME_PER_ANIMATION_FRAME)
 	{

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   map.h                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: manu <manu@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: manugarc <manugarc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/05 18:32:32 by manu              #+#    #+#             */
-/*   Updated: 2022/08/05 18:32:35 by manu             ###   ########.fr       */
+/*   Updated: 2022/08/06 12:21:45 by manugarc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,5 +27,6 @@ typedef enum e_tile {
 void	load_map(t_state *state, char *file_name);
 void	free_map(t_state *state);
 int		is_valid_map(t_state *state);
+void	set_tile(t_state *state, t_tile tile, int x, int y);
 
 #endif
