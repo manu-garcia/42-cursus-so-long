@@ -28,7 +28,7 @@ int	main(int argc, char *argv[])
 		ft_printf("Error\nIncorrect arguments.Expected './so_long map.ber'\n");
 		return (0);
 	}
-	if (!check_extension(argv[1], ".ber"))
+	if (!check_extension(argv[1], "ber"))
 	{
 		ft_printf("Error\nIncorrect map file extension\n");
 		return (0);

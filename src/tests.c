@@ -3,7 +3,7 @@
 
 int	main(int argc, char *argv[])
 {
-	assert(check_extension("map.ber", ".ber")==1); 
+	assert(check_extension("map.ber", "ber")==1); 
 	
 	(void)argc;
 	(void)argv;

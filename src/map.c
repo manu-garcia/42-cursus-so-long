@@ -6,7 +6,7 @@
 /*   By: manu <manu@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/05 18:33:51 by manu              #+#    #+#             */
-/*   Updated: 2022/08/06 16:45:49 by manu             ###   ########.fr       */
+/*   Updated: 2022/08/06 18:00:56 by manu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,6 +80,7 @@ void	load_map(t_state *state, char *file_name)
 {
 	char	*str_map;
 	char	*line;
+	char	*aux;
 	int		fd;
 
 	fd = open(file_name, O_RDONLY);
@@ -94,7 +95,9 @@ void	load_map(t_state *state, char *file_name)
 	{
 		if (str_map)
 		{
+			aux = str_map;
 			str_map = ft_strjoin(str_map, line);
+			free(aux);
 			free(line);
 		}
 		else

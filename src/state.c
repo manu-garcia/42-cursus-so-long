@@ -32,15 +32,21 @@ int	init_state(t_state *state, char *map_file_name)
 	return (1);
 }
 
+/**
+// mlx_destroy did not exist in the mlx api. I added it, so that I can also
+// free the font that mlx initilizes in the mlx_init function!!!
+// Also images need to be freed before mlx_destroy
+ */
 int	free_state(t_state *state)
 {
+	free_all_images(state);
 	if (state->mlx && state->window)
 	{
 		mlx_destroy_window(state->mlx, state->window);
-		free(state->mlx);
+		mlx_destroy(state->mlx);
+		state->mlx = NULL;
 	}
 	free_map(state);
-	// free_all_images(state);
 	ft_memset(state, 0, sizeof(t_state));
 	return (1);
 }
