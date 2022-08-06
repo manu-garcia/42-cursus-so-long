@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   state.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: manugarc <manugarc@student.42.fr>          +#+  +:+       +#+        */
+/*   By: manu <manu@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/05 18:32:55 by manu              #+#    #+#             */
-/*   Updated: 2022/08/06 11:51:52 by manugarc         ###   ########.fr       */
+/*   Updated: 2022/08/06 16:13:51 by manu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,7 @@ typedef struct s_state
 	void		*window;
 	t_animation	hero;
 	t_animation	monster;
+	int			monster_last_axis_move;
 	t_image		floor;
 	t_image		exit;
 	t_image		wall;

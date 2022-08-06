@@ -18,24 +18,47 @@
 #define KCYN  "\x1B[36m"
 #define KWHT  "\x1B[37m"
 
-void	update_frame(t_state *state)
-{
-	state->time++;
-	if (state->time > 20)
-	{
-		state->time = 0;
-		if (state->monster.y == 0)
-			state->monster.y = 1;
-		else
-			state->monster.y = 0;
-	}
-}
-
 int	check_tile_collision(t_state *state, t_tile tile, int x, int y)
 {
 	if ((t_tile) state->map.grid[y][x] == tile)
 		return (1);
 	return (0);
+}
+
+void	update_frame(t_state *state)
+{
+	int	modx;
+	int	mody;
+
+	state->time++;
+	if (state->time > 20)
+	{
+		state->time = 0;
+		modx = 0;
+		mody = 0;
+		if (state->monster_last_axis_move)
+		{
+			state->monster_last_axis_move = 0;
+			if (state->hero.y >= state->monster.y)
+				mody = 1;
+			else
+				mody = -1;
+		}
+		else
+		{
+			state->monster_last_axis_move = 1;
+			if (state->hero.x >= state->monster.x)
+				modx = 1;
+			else
+				modx = -1;
+		}
+		if (!check_tile_collision(state, TILE_WALL, state->monster.x + modx,
+				state->monster.y + mody))
+		{
+			state->monster.x += modx;
+			state->monster.y += mody;
+		}
+	}
 }
 
 void	check_collisions(t_state *state)

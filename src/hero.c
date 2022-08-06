@@ -27,7 +27,8 @@ static void	increase_hero_n_moves(t_state *state)
 
 void	hero_move_right(t_state *state)
 {
-	if (!check_tile_collision(state, TILE_WALL, state->hero.x + 1, state->hero.y))
+	if (!check_tile_collision(state, TILE_WALL,
+			state->hero.x + 1, state->hero.y))
 	{
 		state->hero.x++;
 		increase_hero_n_moves(state);
@@ -36,7 +37,8 @@ void	hero_move_right(t_state *state)
 
 void	hero_move_left(t_state *state)
 {
-	if (!check_tile_collision(state, TILE_WALL, state->hero.x - 1, state->hero.y))
+	if (!check_tile_collision(state, TILE_WALL,
+			state->hero.x - 1, state->hero.y))
 	{
 		state->hero.x--;
 		increase_hero_n_moves(state);
@@ -45,7 +47,8 @@ void	hero_move_left(t_state *state)
 
 void	hero_move_up(t_state *state)
 {
-	if (!check_tile_collision(state, TILE_WALL, state->hero.x, state->hero.y - 1))
+	if (!check_tile_collision(state, TILE_WALL,
+			state->hero.x, state->hero.y - 1))
 	{
 		state->hero.y--;
 		increase_hero_n_moves(state);
@@ -54,34 +57,10 @@ void	hero_move_up(t_state *state)
 
 void	hero_move_down(t_state *state)
 {
-	if (!check_tile_collision(state, TILE_WALL, state->hero.x, state->hero.y + 1))
+	if (!check_tile_collision(state, TILE_WALL,
+			state->hero.x, state->hero.y + 1))
 	{
 		state->hero.y++;
 		increase_hero_n_moves(state);
-	}
-}
-
-void	set_hero_position(t_state *state)
-{
-	int	x;
-	int	y;
-
-	y = 0;
-	while (y < state->map.height)
-	{
-		x = 0;
-		while (x < state->map.width)
-		{
-			if (check_tile_collision(state, TILE_PLAYER, x, y))
-			{
-				ft_printf("Encontrado ....!\n");
-
-				state->hero.x = x;
-				state->hero.y = y;
-				return ;
-			}
-			x++;
-		}
-		y++;
 	}
 }

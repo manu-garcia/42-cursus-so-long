@@ -13,6 +13,7 @@ SOURCES				= 	$(SRC_DIR)/check_extension.c \
 						$(SRC_DIR)/hero.c \
 						$(SRC_DIR)/monster.c \
 						$(SRC_DIR)/map.c \
+						$(SRC_DIR)/position.c \
 						$(SRC_DIR)/error.c
 MAIN_SOURCES		= 	$(SRC_DIR)/main.c $(SOURCES)
 TEST_SOURCES		= 	$(SRC_DIR)/tests.c $(SOURCES)
