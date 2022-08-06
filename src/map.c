@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   map.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: manu <manu@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: manugarc <manugarc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/05 18:33:51 by manu              #+#    #+#             */
-/*   Updated: 2022/08/05 18:59:39 by manu             ###   ########.fr       */
+/*   Updated: 2022/08/06 10:20:30 by manugarc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ static int	count_number_tiles(char *row, t_tile tile)
 	n_tiles = 0;
 	while (row[col])
 	{
-		if (row[col] == tile)
+		if ((t_tile) row[col] == tile)
 			n_tiles++;
 		col++;
 	}
