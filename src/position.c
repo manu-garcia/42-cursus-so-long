@@ -7,7 +7,6 @@
 #include "libft.h"
 #include "map.h"
 #include "frame.h"
-#include "ft_printf.h"
 
 void	set_hero_position(t_state *state)
 {

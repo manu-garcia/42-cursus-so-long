@@ -55,6 +55,8 @@ $(NAME): $(OBJS)
 	@cp $(LIB_MINILIBX)/$(LIB_MINILIBX_NAME) .
 	@$(CC) $(CFLAGS) $(CFLAGS_MINILIBX) -I ${INCLUDES_DIR} -I ${LIB_MINILIBX} $(OBJS) libgnl.a libft.a libftprintf.a $(LIB_MINILIBX_NAME) -o $(NAME)
 
+bonus: $(NAME)
+
 test: $(TESTS_OBJS)
 	@make -C $(LIB_FT_PRINTF)
 	@cp $(LIB_FT_PRINTF)/libftprintf.a .

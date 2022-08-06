@@ -18,7 +18,7 @@ int	init_state(t_state *state, char *map_file_name)
 	load_map(state, map_file_name);
 	if (!is_valid_map(state))
 	{
-		ft_printf("The map is invalid\n");
+		ft_printf("Error\nThe content of the map is invalid\n");
 		return (0);
 	}
 	state->mlx = mlx_init();

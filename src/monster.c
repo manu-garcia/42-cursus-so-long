@@ -5,7 +5,6 @@
 #include "state.h"
 #include "tile.h"
 #include "libft.h"
-#include "ft_printf.h"
 
 void	monster_move_right(t_state *state)
 {

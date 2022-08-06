@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   map.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: manugarc <manugarc@student.42.fr>          +#+  +:+       +#+        */
+/*   By: manu <manu@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/05 18:33:51 by manu              #+#    #+#             */
-/*   Updated: 2022/08/06 12:21:39 by manugarc         ###   ########.fr       */
+/*   Updated: 2022/08/06 16:45:49 by manu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,7 +86,7 @@ void	load_map(t_state *state, char *file_name)
 	line = get_next_line(fd);
 	if (fd == -1 || !line)
 	{
-		ft_printf("Error map file does not exist or empty: (%s)\n", file_name);
+		ft_printf("Error\nMap file does not exist or empty: (%s)\n", file_name);
 		exit_with_error(state);
 	}
 	str_map = NULL;

@@ -12,7 +12,7 @@ int	load_image(t_state *state, t_image *image, char *file)
 			&image->width, &image->height);
 	if (!image->img)
 	{
-		ft_printf("Error loading image (%s)\n", file);
+		ft_printf("Error\nError loading image (%s)\n", file);
 		return (exit_with_error(state));
 	}
 	return (1);

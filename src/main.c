@@ -25,7 +25,12 @@ int	main(int argc, char *argv[])
 
 	if (argc != 2)
 	{
-		ft_printf("Numero de argumentos incorrecto\n");
+		ft_printf("Error\nIncorrect arguments.Expected './so_long map.ber'\n");
+		return (0);
+	}
+	if (!check_extension(argv[1], ".ber"))
+	{
+		ft_printf("Error\nIncorrect map file extension\n");
 		return (0);
 	}
 	if (!init_state(&state, argv[1]))
