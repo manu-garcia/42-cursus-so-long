@@ -6,7 +6,7 @@
 /*   By: manu <manu@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/06 18:42:37 by manu              #+#    #+#             */
-/*   Updated: 2022/08/06 18:42:37 by manu             ###   ########.fr       */
+/*   Updated: 2022/08/06 19:05:32 by manu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,11 +18,13 @@
 #include "load.h"
 #include "libft.h"
 #include "map.h"
+#include "map_validation.h"
 #include "tile.h"
 #include "load.h"
 #include "hero.h"
 #include "position.h"
 #include "ft_printf.h"
+#include "free.h"
 
 int	init_state(t_state *state, char *map_file_name)
 {

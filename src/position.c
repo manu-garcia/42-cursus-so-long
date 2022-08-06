@@ -6,7 +6,7 @@
 /*   By: manu <manu@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/06 18:42:26 by manu              #+#    #+#             */
-/*   Updated: 2022/08/06 18:42:30 by manu             ###   ########.fr       */
+/*   Updated: 2022/08/06 18:59:33 by manu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 #include "libft.h"
 #include "map.h"
 #include "frame.h"
+#include "collision.h"
 
 void	set_hero_position(t_state *state)
 {

@@ -6,7 +6,7 @@
 /*   By: manu <manu@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/06 18:42:19 by manu              #+#    #+#             */
-/*   Updated: 2022/08/06 18:42:22 by manu             ###   ########.fr       */
+/*   Updated: 2022/08/06 19:25:09 by manu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,23 +16,36 @@
 #include "state.h"
 #include "tile.h"
 #include "libft.h"
+#include "collision.h"
 
-void	monster_move_right(t_state *state)
+void	move_monster_vertically(t_state *state)
 {
-	state->monster.x++;
+	int	mody;
+
+	mody = 0;
+	if (state->hero.y >= state->monster.y)
+		mody = 1;
+	else
+		mody = -1;
+	if (!check_tile_collision(state, TILE_WALL, state->monster.x,
+			state->monster.y + mody))
+	{
+		state->monster.y += mody;
+	}
 }
 
-void	monster_move_left(t_state *state)
+void	move_monster_horizontally(t_state *state)
 {
-	state->monster.x--;
-}
+	int	modx;
 
-void	monster_move_up(t_state *state)
-{
-	state->monster.y--;
-}
-
-void	monster_move_down(t_state *state)
-{
-	state->monster.y++;
+	modx = 0;
+	if (state->hero.x >= state->monster.x)
+		modx = 1;
+	else
+		modx = -1;
+	if (!check_tile_collision(state, TILE_WALL, state->monster.x + modx,
+			state->monster.y))
+	{
+		state->monster.x += modx;
+	}
 }

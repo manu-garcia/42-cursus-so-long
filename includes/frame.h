@@ -1,10 +1,21 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   frame.h                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: manu <manu@student.42.fr>                  +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/08/06 18:57:21 by manu              #+#    #+#             */
+/*   Updated: 2022/08/06 18:57:22 by manu             ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef FRAME_H
 # define FRAME_H
 
 # include "state.h"
-#include "map.h"
+# include "map.h"
 
 int	on_render_frame(t_state *state);
-int	check_tile_collision(t_state *state, t_tile tile, int x, int y);
 
 #endif

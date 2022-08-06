@@ -6,7 +6,7 @@
 /*   By: manu <manu@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/06 18:41:28 by manu              #+#    #+#             */
-/*   Updated: 2022/08/06 18:41:34 by manu             ###   ########.fr       */
+/*   Updated: 2022/08/06 18:59:20 by manu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 #include "map.h"
 #include "frame.h"
 #include "ft_printf.h"
+#include "collision.h"
 
 static void	increase_hero_n_moves(t_state *state)
 {

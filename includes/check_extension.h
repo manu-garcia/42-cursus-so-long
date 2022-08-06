@@ -1,2 +1,18 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   check_extension.h                                  :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: manu <manu@student.42.fr>                  +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/08/06 19:00:26 by manu              #+#    #+#             */
+/*   Updated: 2022/08/06 19:01:13 by manu             ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-int check_extension(char *path, char *extension);
+#ifndef CHECK_EXTENSION_H
+# define CHECK_EXTENSION_H
+
+int	check_extension(char *path, char *extension);
+
+#endif
