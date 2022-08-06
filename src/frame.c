@@ -31,9 +31,9 @@ void	update_frame(t_state *state)
 	}
 }
 
-int	check_tile_collision(t_state *state, t_tile tile)
+int	check_tile_collision(t_state *state, t_tile tile, int x, int y)
 {
-	if ((t_tile) state->map.grid[state->hero.y][state->hero.x] == tile)
+	if ((t_tile) state->map.grid[y][x] == tile)
 		return (1);
 	return (0);
 }
@@ -46,10 +46,19 @@ void	check_collisions(t_state *state)
 		ft_printf("%sGame Over\n", KRED);
 		exit_without_error(state);
 	}
-	if (check_tile_collision(state, TILE_COLLECTIBLE))
+	if (check_tile_collision(state, TILE_COLLECTIBLE, state->hero.x,
+			state->hero.y))
 	{
 		state->n_collectibles++;
 		set_tile(state, TILE_EMPTY, state->hero.x, state->hero.y);
+	}
+	if (check_tile_collision(state, TILE_EXIT, state->hero.x, state->hero.y))
+	{
+		if (state->map.n_tiles_collectible == state->n_collectibles)
+		{
+			ft_printf("%sCaracol!!!\n", KGRN);
+			exit_without_error(state);
+		}
 	}
 }
 

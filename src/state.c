@@ -22,8 +22,8 @@ int	init_state(t_state *state, char *map_file_name)
 	}
 	state->mlx = mlx_init();
 	state->window = mlx_new_window(state->mlx,
-		state->map.width * TILE_SIZE,
-		state->map.height * TILE_SIZE, "so_long");
+			state->map.width * TILE_SIZE,
+			state->map.height * TILE_SIZE, "so_long");
 	load_all_images(state);
 	set_hero_position(state);
 	return (1);
