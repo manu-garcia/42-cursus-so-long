@@ -2,7 +2,7 @@
 NAME				=	so_long
 
 SRC_DIR				=	src
-INCLUDES_DIR		= 	includes
+INCLUDES_DIR		= 	includes minilibx/mlx.h
 
 SOURCES				= 	$(SRC_DIR)/check_extension.c \
 						$(SRC_DIR)/collision.c \
